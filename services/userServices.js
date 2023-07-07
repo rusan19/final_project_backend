@@ -115,24 +115,7 @@ exports.postGetLesson = async (req, res, next) => {
     return res.status(500).send(err);
   }
 };
-exports.getStudent = async () => {
-  const getStudents = async () => {
-    try {
-      const students = await User.find({ status: "öğrenci" });
-      return students;
-    } catch (error) {
-      console.error("Kullanıcıları çekerken bir hata oluştu:", error);
-      throw error;
-    }
-  };
-  getStudents()
-    .then((students) => {
-      console.log("Öğrenciler:", students);
-    })
-    .catch((error) => {
-      console.error("İşlem sırasında bir hata oluştu:", error);
-    });
-};
+
 exports.postGetStudentByLesson = async (req, res) => {
   try {
     const { code } = req.body;
